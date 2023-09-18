@@ -64,8 +64,8 @@ def _2_get_urlanddl(url, name='default'):
 
 
 if __name__ == '__main__':
-    page1 = input("输入start页面")
-    page2 = input("end")
+    page1 = input("输入start页面：")
+    page2 = input("输入end页面：")
     crawled=[]
     try:
         with open('已爬取草榴word.log', 'r') as file:

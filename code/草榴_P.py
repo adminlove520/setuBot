@@ -126,8 +126,8 @@ def process_download(save_pic, url_list,title):
     print('多进程总耗时：%r' % (end - start))
 if __name__ == '__main__':
     pic_type=input('输入类型\n1技术交流\n2新時代的我們\n3達蓋爾的旗幟\n')
-    page1 = input("输入start页面")
-    page2 = input("end")
+    page1 = input("输入start页面：")
+    page2 = input("输入end页面：")
     crawled=[]
     try:
         with open('已爬取草榴p.log', 'r') as file:
