@@ -1,0 +1,4 @@
+beautifulsoup4==4.11.1
+chardet==5.2.0
+fake_useragent==1.4.0
+Requests==2.31.0
