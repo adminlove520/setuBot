@@ -35,6 +35,7 @@ jobs:
     - name: Lint with flake8
       run: |
        mkdir pic
+       cd code
        python 草榴_P_auto.py
     - name: Commit
       run: |
