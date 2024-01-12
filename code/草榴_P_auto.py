@@ -5,6 +5,7 @@ import re
 import os
 import multiprocessing
 import time
+import random
 from chardet.universaldetector import UniversalDetector
 import chardet
 from fake_useragent import UserAgent
