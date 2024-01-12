@@ -126,10 +126,10 @@ def process_download(save_pic, url_list,title):
     end = time.time()
     print('多进程总耗时：%r' % (end - start))
 if __name__ == '__main__':
-    types = ['技术交流','新時代的我們','達蓋爾的旗幟']  # 可选的类型列表
+    types = ['1','2','3']  # 可选的类型列表
     pic_type = random.choice(types)  # 随机选择一个类型
-    page1 = input("输入start页面（默认为5）：") or '5'
-    page2 = input("输入end页面（默认为100）：") or '100'
+    page1 = '5'
+    page2 = '100'
     crawled=[]
     try:
         with open('已爬取草榴p.log', 'r') as file:
