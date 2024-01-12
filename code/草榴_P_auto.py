@@ -129,7 +129,7 @@ if __name__ == '__main__':
     types = ['1','2','3']  # 可选的类型列表
     pic_type = random.choice(types)  # 随机选择一个类型
     page1 = '5'
-    page2 = '10'
+    page2 = '6'
     crawled=[]
     try:
         with open('已爬取草榴p.log', 'r') as file:
