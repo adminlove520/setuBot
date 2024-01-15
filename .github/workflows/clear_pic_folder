@@ -1,0 +1,34 @@
+name: Clear pic folder
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  clear_pic_folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Clear pic folder
+        run: |
+          # cd code
+          # rm -rf pic/*
+          # echo "pic folder cleared"
+          find code/ -type f \( -name "*.webp" -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -delete
+          echo "Image files cleared"
+      - name: Commit
+        run: |
+          git diff
+          git config --global user.email 791751568@qq.com
+          git config --global user.name adminlove520
+          git add code/
+          git commit -m "解决错误提交"
+          git push
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
