@@ -14,17 +14,17 @@ jobs:
 
       - name: Clear pic folder
         run: |
-          # cd code
-          # rm -rf pic/*
-          # echo "pic folder cleared"
-          find code/ -type f \( -name "*.webp" -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -delete
-          echo "Image files cleared"
+           cd code
+           rm -rf pic/*
+           echo "pic folder cleared"
+          # find code/ -type f \( -name "*.webp" -name "*.gif" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) -delete
+          # echo "Image files cleared"
       - name: Commit
         run: |
           git diff
           git config --global user.email 791751568@qq.com
           git config --global user.name adminlove520
-          git add code/
+          git add .
           git commit -m "解决错误提交"
           git push
 
