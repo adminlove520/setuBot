@@ -38,13 +38,15 @@ jobs:
        mkdir pic
        cd code
        python 草榴_P_auto.py
-       zip -r pic.zip pic
+       zip -r pic_$(date +"%Y-%m-%d").zip pic
+       mv pic.zip ../pic.zip
+       cd ..
     - name: Commit
       run: |
           git diff
           git config --global user.email 791751568@qq.com
           git config --global user.name adminlove520
-          git add pic.zip
+          git add pic_$(date +"%Y-%m-%d").zip
           git commit -m "每日涩涩（`date +'%Y-%m-%d'`）"
 
     - name: Push changes
