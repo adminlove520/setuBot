@@ -40,8 +40,7 @@ jobs:
        python 草榴_P_auto.py
        sudo apt-get install zip -y
        zip -r pic_$(date +"%Y-%m-%d").zip pic
-       mv pic.zip ../pic.zip
-       cd ..
+       
     - name: Commit
       run: |
           git diff
