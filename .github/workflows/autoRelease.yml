@@ -1,0 +1,36 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: "每日涩涩v_$(date +'%Y-%m-%d')"
+        release_name: "每日涩涩v_$(date +'%Y-%m-%d')"
+        body: "每日涩涩v_$(date +'%Y-%m-%d')"
+        draft: false
+        prerelease: false
+
+    - name: Upload release asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./pic_$(date +"%Y-%m-%d").zip
+        asset_name: pic_$(date +"%Y-%m-%d").zip
+        asset_content_type: application/zip
