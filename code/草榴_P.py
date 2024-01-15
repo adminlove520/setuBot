@@ -25,7 +25,7 @@ def _1_get_url(page,pic_type):
 
     # url = 'https://t66y.com/@%E5%9B%9E%E6%94%B6%E8%A1%A8%E5%A6%B9' #注意看好url
 
-    res = requests.get(url, headers=headers, verify=False)
+    res = requests.get(url, headers=headers)
     code = re.findall('charset=(.*)\"', res.text)[0]
     if not code:
         code=chardet.detect(res.content)['encoding']
