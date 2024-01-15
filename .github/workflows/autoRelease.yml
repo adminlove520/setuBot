@@ -19,7 +19,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: "每日涩涩v_$(date +'%Y-%m-%d')"
+        tag_name: "每日涩涩"
         release_name: "每日涩涩v_$(date +'%Y-%m-%d')"
         body: "每日涩涩v_$(date +'%Y-%m-%d')"
         draft: false
