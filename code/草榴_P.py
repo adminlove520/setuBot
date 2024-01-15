@@ -8,7 +8,7 @@ import time
 from chardet.universaldetector import UniversalDetector
 import chardet
 from fake_useragent import UserAgent
-ua = UserAgent(verify_ssl=False)
+ua = UserAgent()
 # headers = {
 #     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36 QIHU 360SE'
 # }
@@ -25,7 +25,7 @@ def _1_get_url(page,pic_type):
 
     # url = 'https://t66y.com/@%E5%9B%9E%E6%94%B6%E8%A1%A8%E5%A6%B9' #注意看好url
 
-    res = requests.get(url, headers=headers)
+    res = requests.get(url, headers=headers, verify=False)
     code = re.findall('charset=(.*)\"', res.text)[0]
     if not code:
         code=chardet.detect(res.content)['encoding']
