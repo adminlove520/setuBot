@@ -39,7 +39,7 @@ jobs:
        cd code
        python 草榴_P_auto.py
        sudo apt-get install zip -y
-       zip -r pic_$(date +"%Y-%m-%d").zip pic
+       tar -zcvf pic_$(date +"%Y-%m-%d").tar.gz pic
        
     - name: Commit
       run: |
@@ -62,5 +62,5 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 30
+          retain_days: 7
           keep_minimum_runs: 7
