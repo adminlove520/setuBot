@@ -46,7 +46,7 @@ jobs:
           git diff
           git config --global user.email 791751568@qq.com
           git config --global user.name adminlove520
-          git add *.zip
+          git add *.tar.gz
           git commit -m "每日涩涩（`date +'%Y-%m-%d'`）"
 
     - name: Push changes
