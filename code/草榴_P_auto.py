@@ -6,6 +6,8 @@ import time
 import random
 from chardet.universaldetector import UniversalDetector
 import chardet
+import io
+import sys
 from fake_useragent import UserAgent
 
 ua = UserAgent()
