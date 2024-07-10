@@ -31,6 +31,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./pic_$(date +"%Y-%m-%d").tar.gz
+        asset_path: ./code/pic_$(date +"%Y-%m-%d").tar.gz
         asset_name: pic_$(date +"%Y-%m-%d").tar.gz
         asset_content_type: application/tar.gz
