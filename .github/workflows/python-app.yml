@@ -1,10 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 name: Update dailySex
 
 on:
-# 国际标准时间2点（北京时间10点）
   schedule:
     - cron: '0 2 * * *'
   workflow_dispatch:
@@ -33,14 +29,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install chardet fake_useragent
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Runner
+    - name: Run Python script
       run: |
-       mkdir pic
-       cd code
-       python 草榴_P_auto.py
-       sudo apt-get install zip -y
-       tar -zcvf pic_$(date +"%Y-%m-%d").tar.gz pic
-       
+        cd code
+        python 草榴_P_auto.py
+    - name: Wait for images to be generated
+      run: |
+        sleep 30  # Adjust the delay as needed based on how long the script typically takes
+    - name: Create tarball
+      run: |
+        mkdir -p pic  # Ensure pic folder exists
+        tar -zcvf pic_$(date +"%Y-%m-%d").tar.gz pic
+        
     - name: Commit
       run: |
           git diff
